@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rudraksh Trifold Brochure</title>
+  <link rel="stylesheet" href="styles.css?v=2" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="viewer" aria-label="Interactive Rudraksh trifold brochure">
+      <div class="topbar">
+        <div>
+          <p class="eyebrow">Interactive brochure</p>
+          <h1>Rudraksh</h1>
+        </div>
+        <div class="controls" aria-label="Brochure controls">
+          <button class="icon-button" type="button" data-action="prev" aria-label="Previous fold state" title="Previous"><span aria-hidden="true">&#8249;</span></button>
+          <button class="primary-button" type="button" data-action="toggle">Open brochure</button>
+          <button class="icon-button" type="button" data-action="next" aria-label="Next fold state" title="Next"><span aria-hidden="true">&#8250;</span></button>
+          <a class="icon-button" href="RUDRAKSH TRIFOLD BROCHURE.pdf" download aria-label="Download PDF" title="Download PDF"><span aria-hidden="true">&#8681;</span></a>
+        </div>
+      </div>
+
+      <div class="stage-wrap">
+        <div class="stage" data-state="closed">
+          <button class="brochure" type="button" data-layout="single" aria-label="Click to open the trifold brochure">
+            <span class="panel panel-a"></span>
+            <span class="panel panel-b"></span>
+            <span class="panel panel-c"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="status-row">
+        <div class="steps" aria-hidden="true">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <p class="state-label" aria-live="polite">Closed cover</p>
+      </div>
+    </section>
+  </main>
+  <script src="script.js?v=2"></script>
+</body>
+</html>
