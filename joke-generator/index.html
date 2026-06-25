@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Joke Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Background Animation -->
+        <div class="background-animation">
+            <div class="bubble bubble-1"></div>
+            <div class="bubble bubble-2"></div>
+            <div class="bubble bubble-3"></div>
+            <div class="bubble bubble-4"></div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1 class="title">😂 Joke Generator</h1>
+                    <p class="subtitle">Get random jokes to brighten your day!</p>
+                </div>
+            </header>
+
+            <!-- Main Card -->
+            <div class="card">
+                <!-- Joke Display Area -->
+                <div class="joke-container">
+                    <div id="joke-display" class="joke-display">
+                        <div class="loading-spinner">
+                            <div class="spinner"></div>
+                            <p>Loading a funny joke for you...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joke Type Selector -->
+                <div class="controls">
+                    <label for="joke-type" class="control-label">Choose Joke Type:</label>
+                    <div class="type-selector">
+                        <button class="type-btn active" data-type="any" onclick="setJokeType('any')">Any</button>
+                        <button class="type-btn" data-type="general" onclick="setJokeType('general')">General</button>
+                        <button class="type-btn" data-type="programming" onclick="setJokeType('programming')">Programming</button>
+                        <button class="type-btn" data-type="knock-knock" onclick="setJokeType('knock-knock')">Knock Knock</button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button id="get-joke-btn" class="btn btn-primary" onclick="getJoke()">
+                        <span class="btn-icon">✨</span>
+                        Get New Joke
+                    </button>
+                    <button id="copy-btn" class="btn btn-secondary" onclick="copyToClipboard()" title="Copy joke to clipboard">
+                        <span class="btn-icon">📋</span>
+                        Copy
+                    </button>
+                    <button id="share-btn" class="btn btn-secondary" onclick="shareJoke()" title="Share joke">
+                        <span class="btn-icon">🔗</span>
+                        Share
+                    </button>
+                </div>
+
+                <!-- Joke Counter -->
+                <div class="joke-stats">
+                    <p>Jokes loaded: <span id="joke-count">0</span></p>
+                </div>
+            </div>
+
+            <!-- Favorites Section -->
+            <div class="card favorites-card">
+                <h2 class="favorites-title">⭐ Favorite Jokes</h2>
+                <div id="favorites-container" class="favorites-container">
+                    <p class="no-favorites">No favorite jokes yet. Click the heart icon to save your favorite jokes!</p>
+                </div>
+                <button id="clear-favorites-btn" class="btn btn-danger" onclick="clearFavorites()" style="display: none; width: 100%; margin-top: 15px;">
+                    Clear All Favorites
+                </button>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-jokes">0</div>
+                    <div class="stat-label">Total Jokes Loaded</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="favorite-count">0</div>
+                    <div class="stat-label">Favorite Jokes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="share-count">0</div>
+                    <div class="stat-label">Times Shared</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- API Info Modal -->
+    <div id="api-info-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>About This App</h2>
+                <button class="modal-close" onclick="closeApiInfo()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>API Used</h3>
+                <p><strong>Official Joke API</strong></p>
+                <p>This application uses the <a href="https://official-joke-api.appspot.com/" target="_blank">Official Joke API</a> to fetch random jokes.</p>
+                
+                <h3>Features</h3>
+                <ul>
+                    <li>✅ Random joke generator</li>
+                    <li>✅ Multiple joke categories</li>
+                    <li>✅ Copy to clipboard functionality</li>
+                    <li>✅ Share jokes feature</li>
+                    <li>✅ Save favorite jokes locally</li>
+                    <li>✅ Track joke statistics</li>
+                </ul>
+
+                <h3>Joke Types Available</h3>
+                <ul>
+                    <li><strong>Any:</strong> Random joke from all categories</li>
+                    <li><strong>General:</strong> General humor jokes</li>
+                    <li><strong>Programming:</strong> Developer and programming jokes</li>
+                    <li><strong>Knock Knock:</strong> Classic knock-knock jokes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Built with ❤️ | <a href="#" onclick="openApiInfo(); return false;">About API</a> | Data persists locally</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
